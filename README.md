@@ -1,6 +1,14 @@
 # **AnimeGen**  
 **Convert stories into anime-style scenes using AI**  
 
+AnimeGen is an AI-powered tool that takes a written story as input, automatically splits it into meaningful scenes, and generates anime-style images for each scene. It then displays these images in a slideshow, creating a visual storytelling experience.  
+
+
+
+https://github.com/user-attachments/assets/01dde7e3-760f-4b85-ba0d-cd8a1553d022
+
+
+
 ## **Installation**  
 
 ### **1. Clone the Repository**  
@@ -46,16 +54,28 @@ python src/main.py
 ```
 #### 3. View the Output
 The generated anime-style scenes will be saved in the output/ directory.
+
+#### 4. Set Up API Keys
+AnimeGen requires Pinecone for scene similarity calculations and Together AI for text-to-image generation.  
+
+ **Create a Pinecone Index**  
+1. Sign up at [Pinecone](https://www.pinecone.io/) and create an index named **`animegen`** with the following settings:  
+   - **Metric**: Cosine  
+   - **Dimension**: 384  
+   - **Pod Type**: Starter (or higher)  
+
+2. Get your Pinecone API key from the dashboard.  
+
+**Get a Together AI API Key**  
+1. Sign up at [Together AI](https://www.together.ai/) and generate an API key.  
+
+**Store API Keys in `.env`**  
+Create a `.env` file in the project root and add:  
+```ini
+PINECONE_ANIMEGEN_API_KEY=your_pinecone_api_key_here
+TOGETHER_AI_API_KEY=your_together_ai_key_here
 ```
-Project Structure
-animegen/
-├── story.txt                # Input story file
-├── requirements.txt         # List of dependencies
-├── src/
-│   └── main.py              # Main script to generate anime scenes
-├── output/                  # Directory for generated scenes
-└── README.md                # Project documentation
-```
+
 ### Contributing
 Contributions are welcome! If you'd like to contribute, please follow these steps:
 
