@@ -22,11 +22,16 @@ print("Scenes splitted successfully!")
 #     print(i[0])
 
 # Scenes to prompt
-print(scenes)
+# print(scenes)
 number_of_scenes = len(scenes)
 print(f"Number of scenes: {number_of_scenes}")
+
+print("\n")
+image_type = input("Enter the type of image you want to generate (realistic, cartoon, abstract): ")
+print("\n")
+
 for i, scene in enumerate(scenes, 1):
-    prompt = "Make an realistic image of" + scene
+    prompt = f"Make a {image_type} image of" + scene
     # print(prompt)
     text_to_img.main(prompt, f"story/image-{i}")
 
