@@ -5,7 +5,7 @@
 
 ### **1. Clone the Repository**  
 ```sh
-git clone https://github.com/your-username/animegen.git
+git clone https://github.com/ABarpanda/Animegen.git
 cd animegen
 ```
 
