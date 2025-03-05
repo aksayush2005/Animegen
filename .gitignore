@@ -1,5 +1,7 @@
+.env
 story/
 myenv/
 images/
-story.jsom
+story.json
+image_texts.json
 image
