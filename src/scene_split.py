@@ -19,7 +19,7 @@ def main(story_text, threshold=0.5):
     print("Using", device)
 
     load_dotenv()
-    api_key = os.getenv("PINECONE_ANIMEGEN_KEY_384")
+    api_key = os.getenv("PINECONE_ANIMEGEN_API_KEY")
     pc = Pinecone(api_key=api_key)
     index = pc.Index(index_name)
 
