@@ -5,13 +5,14 @@ import os
 import torch
 import numpy as np
 import re
+from typing import List
 
-story_text = """John walked into the forest. He heard rustling behind him. The trees loomed tall as he pressed forward, his heart pounding. Later that night, he found a small cabin. It looked abandoned, but the door creaked open when he pushed it. The wind howled outside as he stepped in. Inside the cabin, an old man sat by the fire. He wore a long cloak and stared at John as if expecting him. In the morning, John woke up to find the man missing. The fire had gone cold. He stepped outside and saw footprints leading into the misty woods. With no other choice, he followed the footprints. The deeper he went, the more uneasy he felt, as if someone—or something—was watching him."""
+story_text: str = """John walked into the forest. He heard rustling behind him. The trees loomed tall as he pressed forward, his heart pounding. Later that night, he found a small cabin. It looked abandoned, but the door creaked open when he pushed it. The wind howled outside as he stepped in. Inside the cabin, an old man sat by the fire. He wore a long cloak and stared at John as if expecting him. In the morning, John woke up to find the man missing. The fire had gone cold. He stepped outside and saw footprints leading into the misty woods. With no other choice, he followed the footprints. The deeper he went, the more uneasy he felt, as if someone—or something—was watching him."""
 
-def split_into_sentences(text):
+def split_into_sentences(text: str) -> List[str]:
     return re.findall(r"[^.!?]+", text)
 
-def main(story_text, threshold=0.5):
+def main(story_text: str, threshold: float = 0.5) -> List[str]:
     index_name = "text-search"
     sentences = split_into_sentences(story_text)
 
