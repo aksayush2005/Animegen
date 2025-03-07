@@ -1,11 +1,12 @@
 import tkinter as tk
 from PIL import Image, ImageTk
 import json
+from typing import List
 
 with open("story.json", 'r') as file:
     image_texts = json.load(file)
 
-image_paths = list(image_texts.keys()) 
+image_paths: List[str] = list(image_texts.keys()) 
 # print(image_texts)
 
 root = tk.Tk()
@@ -17,10 +18,10 @@ img_label.pack()
 text_label = tk.Label(root, text="", font=("Arial", 14), wraplength=600)
 text_label.pack(pady=10)
 
-idx = 0
-paused = False  
+idx: int = 0
+paused: bool = False  
 
-def update_image():
+def update_image() -> None:
     global idx, paused
     if paused:
         return
@@ -39,18 +40,18 @@ def update_image():
     idx = (idx + 1) % len(image_texts)
     root.after(5000, update_image)  
 
-def toggle_pause():
+def toggle_pause() -> None:
     global paused
     paused = not paused
     if not paused:
         update_image()
 
-def next_image():
+def next_image() -> None:
     global idx
     idx = (idx + 1) % len(image_texts)
     update_image()
 
-def prev_image():
+def prev_image() -> None:
     global idx
     idx = (idx - 1) % len(image_texts)
     update_image()

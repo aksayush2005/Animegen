@@ -9,7 +9,7 @@ import shutil
 with open("story.txt", "r", encoding="utf-8") as f:
     story = f.read()
 
-def clear_story_folder(folder_path="story"):
+def clear_story_folder(folder_path: str = "story") -> None:
     if os.path.exists(folder_path):
         shutil.rmtree(folder_path)
     os.makedirs(folder_path)
